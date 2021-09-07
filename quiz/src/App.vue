@@ -1,6 +1,16 @@
-<template>
-  <Header/>
-  <QuestionBox/>
+<template> 
+  <div id="app">
+    <Header />
+    
+    <b-container class="bv-example-row">
+      <b-row>
+        <b-col>
+          <QuestionBox />
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
+
 </template>
 
 <script>
@@ -8,7 +18,7 @@ import Header from './components/Header.vue'
 import QuestionBox from './components/QuestionBox.vue'
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     Header,
     QuestionBox
