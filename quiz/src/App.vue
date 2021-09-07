@@ -4,13 +4,15 @@
     
     <b-container class="bv-example-row">
       <b-row>
-        <b-col>
-          <QuestionBox />
+        <b-col sm="6" offset="3 b ">
+          <QuestionBox 
+            :currentQuestion="questions[index]"
+          />
         </b-col>
       </b-row>
     </b-container>
   </div>
-
+ 
 </template>
 
 <script>
@@ -22,8 +24,26 @@ export default {
   components: {
     Header,
     QuestionBox
+  },
+  data() {
+    return {
+      questions: [],
+      index: 0
+    }
+  },
+  mounted: function() {
+    fetch('https://opentdb.com/api.php?amount=15&category=18', {
+      method: 'get'
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((jsonData) => {
+      this.questions = jsonData.results
+    })
   }
 }
+// lifecycle methods - functions that get called automatically as components are created, mounted, destroyed, etc... 
 </script>
 
 <style>
