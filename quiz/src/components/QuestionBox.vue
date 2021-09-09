@@ -76,6 +76,7 @@
     
 
 <style scoped> 
+/* These are the styles */
     .list-group {
         margin-bottom: 15px;
     }
