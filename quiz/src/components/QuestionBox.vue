@@ -24,6 +24,7 @@
             <b-button 
                 variant="primary"
                 @click="submitAnswer"
+                :disabled="selectedIndex === null"
             >
                 Submit
             </b-button>
