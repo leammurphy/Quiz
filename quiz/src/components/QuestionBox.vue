@@ -11,7 +11,11 @@
                         v-for="(answer, index) in answers" 
                         :key="index"
                         @click="selectAnswer(index)"
-                        :class="[!answered && selectedIndex === index ? 'selected' : answered && correctIndex === index ? 'correct' : '']"
+                        :class="[
+                            !answered && selectedIndex === index ? 'selected' : 
+                            answered && correctIndex === index ? 'correct' : 
+                            answered && selectedIndex === index && correctIndex !== index ? 'incorrect' : ''
+                        ]"
                     >
                         
                         {{answer}}
@@ -115,6 +119,6 @@
         background-color:lightgreen;
     }
     .incorrect {
-        background-color: red;
+        background-color: lightcoral;
     }
 </style>
