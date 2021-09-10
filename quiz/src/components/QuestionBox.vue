@@ -24,7 +24,7 @@
             <b-button 
                 variant="primary"
                 @click="submitAnswer"
-                :disabled="selectedIndex === null"
+                :disabled="selectedIndex === null || answered"
             >
                 Submit
             </b-button>
@@ -44,7 +44,10 @@
         data() {
             return {
                 selectedIndex: null,
-                shuffledAnswers: []
+                correctIndex: null,
+                shuffledAnswers: [],
+                answered: false
+
             }
         },
         computed: {
@@ -70,6 +73,7 @@
                 if (this.selectedIndex === this.correctIndex) {
                     isCorrect = true
                 }
+                this.answered = true
 
                 this.increment(isCorrect)
             }
@@ -79,6 +83,7 @@
                 immediate: true,
                 handler() {
                     this.selectedIndex = null
+                    this.answered = false
                     this.shuffleAnswers()
                 }
             }
