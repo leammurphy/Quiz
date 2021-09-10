@@ -11,7 +11,7 @@
                         v-for="(answer, index) in answers" 
                         :key="index"
                         @click="selectAnswer(index)"
-                        :class="[selectedIndex === index ? 'selected' : '']"
+                        :class="[!answered && selectedIndex === index ? 'selected' : answered && correctIndex === index ? 'correct' : '']"
                     >
                         
                         {{answer}}
@@ -47,7 +47,6 @@
                 correctIndex: null,
                 shuffledAnswers: [],
                 answered: false
-
             }
         },
         computed: {
@@ -113,7 +112,7 @@
         background-color: lightblue;
     }
     .correct {
-        background-color: green;
+        background-color:lightgreen;
     }
     .incorrect {
         background-color: red;
